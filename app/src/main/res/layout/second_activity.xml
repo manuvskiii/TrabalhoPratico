@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".SecondActivity">
+
+    <!-- Segundo Layout -->
+
+    <LinearLayout
+        android:id="@+id/secondLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:background="@color/white"
+        android:visibility="visible"> <!-- Oculta o segundo layout inicialmente -->
+
+        <TextView
+            android:id="@+id/escolas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Escolas"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_marginBottom="20dp" />
+
+        <!-- Criando divisores manualmente -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/escola1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="ESTG"
+                android:padding="20dp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@android:color/darker_gray" />
+
+            <TextView
+                android:id="@+id/escola2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="ESA"
+                android:padding="20dp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@android:color/darker_gray" />
+
+            <TextView
+                android:id="@+id/escola3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="ESE"
+                android:padding="20dp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@android:color/darker_gray" />
+
+            <TextView
+                android:id="@+id/escola4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="ESS"
+                android:padding="20dp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@android:color/darker_gray" />
+
+            <TextView
+                android:id="@+id/escola5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="ESCE"
+                android:padding="20dp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@android:color/darker_gray" />
+
+            <TextView
+                android:id="@+id/escola6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="ESDL"
+                android:padding="20dp" />
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>
