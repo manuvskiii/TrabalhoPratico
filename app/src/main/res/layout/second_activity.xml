@@ -1,105 +1,166 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".SecondActivity">
+    tools:context=".SecondActivity"
+    android:orientation="vertical"
+    android:padding="16dp">
 
-    <!-- Segundo Layout -->
-
-    <LinearLayout
-        android:id="@+id/secondLayout"
+    <!-- Título -->
+    <TextView
+        android:id="@+id/escolas"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:padding="16dp"
-        android:background="@color/white"
-        android:visibility="visible"> <!-- Oculta o segundo layout inicialmente -->
+        android:layout_height="wrap_content"
+        android:text="Escolas"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginBottom="8dp" />
+
+    <!-- Primeiro item: ESE -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="4dp">
 
         <TextView
-            android:id="@+id/escolas"
-            android:layout_width="match_parent"
+            android:id="@+id/escola1"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Escolas"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            android:gravity="center"
-            android:layout_marginBottom="20dp" />
+            android:text="ESE"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:paddingStart="8dp" />
 
-        <!-- Criando divisores manualmente -->
-        <LinearLayout
-            android:layout_width="match_parent"
+        <ImageView
+            android:id="@+id/ese"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/ese"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true" />
+    </RelativeLayout>
+
+    <!-- Segundo item: ESA -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="4dp">
+
+        <TextView
+            android:id="@+id/escola2"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:text="ESA"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:paddingStart="8dp" />
 
-            <TextView
-                android:id="@+id/escola1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="ESTG"
-                android:padding="20dp" />
+        <ImageView
+            android:id="@+id/esa"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/esa"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true" />
+    </RelativeLayout>
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:background="@android:color/darker_gray" />
+    <!-- Terceiro item: ESTG -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="4dp">
 
-            <TextView
-                android:id="@+id/escola2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="ESA"
-                android:padding="20dp" />
+        <TextView
+            android:id="@+id/escola3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ESTG"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:paddingStart="8dp" />
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:background="@android:color/darker_gray" />
+        <ImageView
+            android:id="@+id/estg"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/estg"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true" />
+    </RelativeLayout>
 
-            <TextView
-                android:id="@+id/escola3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="ESE"
-                android:padding="20dp" />
+    <!-- Quarto item: ESS -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="4dp">
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:background="@android:color/darker_gray" />
+        <TextView
+            android:id="@+id/escola4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ESS"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:paddingStart="8dp" />
 
-            <TextView
-                android:id="@+id/escola4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="ESS"
-                android:padding="20dp" />
+        <ImageView
+            android:id="@+id/ess"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/ess"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true" />
+    </RelativeLayout>
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:background="@android:color/darker_gray" />
+    <!-- Quinto item: ESCE -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="4dp">
 
-            <TextView
-                android:id="@+id/escola5"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="ESCE"
-                android:padding="20dp" />
+        <TextView
+            android:id="@+id/escola5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ESCE"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:paddingStart="8dp" />
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:background="@android:color/darker_gray" />
+        <ImageView
+            android:id="@+id/esce"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/esce"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true" />
+    </RelativeLayout>
 
-            <TextView
-                android:id="@+id/escola6"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="ESDL"
-                android:padding="20dp" />
-        </LinearLayout>
-    </LinearLayout>
+    <!-- Sexto item: ESDL -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="4dp">
 
-</RelativeLayout>
+        <TextView
+            android:id="@+id/escola6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ESDL"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:paddingStart="8dp" />
+
+        <ImageView
+            android:id="@+id/esdl"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/esdl"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true" />
+    </RelativeLayout>
+
+</LinearLayout>
