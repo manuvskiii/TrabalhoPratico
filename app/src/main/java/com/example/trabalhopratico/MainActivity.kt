@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity() {
         val startButton: Button = findViewById(R.id.startButton)
 
         startButton.setOnClickListener {
-            val intent = Intent(this, SecondActivity::class.java)
+            val intent = Intent(this, EscolasActivity::class.java)
             startActivity(intent) // Inicia a segunda atividade
         }
     }

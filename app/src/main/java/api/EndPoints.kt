@@ -40,4 +40,7 @@ import retrofit2.http.Path
         // Detalhes de uma escola específica
         @GET("api/escolas/{id}")
         fun getEscolaById(@Path("id") id: Int): Call<Escola>
+
+        @GET("api/cursos/{id_escola}")
+        fun getCursosByEscola(@Path("id_escola") escolaId: Int): Call<List<Curso>>
     }
