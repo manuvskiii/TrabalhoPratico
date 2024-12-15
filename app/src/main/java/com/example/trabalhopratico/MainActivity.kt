@@ -17,7 +17,6 @@ class MainActivity : AppCompatActivity() {
         // Referência para o botão "Começar"
         val startButton: Button = findViewById(R.id.startButton)
 
-        // Configura o clique no botão para abrir a segunda atividade
         startButton.setOnClickListener {
             val intent = Intent(this, SecondActivity::class.java)
             startActivity(intent) // Inicia a segunda atividade
