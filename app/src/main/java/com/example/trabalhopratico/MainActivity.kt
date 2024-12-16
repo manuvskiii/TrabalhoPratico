@@ -11,15 +11,18 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        //mostra a imagem de fundo
+        // Associar a imagem de fundo no layout à variável backgroundImage.
         val backgroundImage: ImageView = findViewById(R.id.backgroundImage)
 
-        // Referência para o botão "Começar"
+        // Associar o botão "Começar" à variável startButton.
         val startButton: Button = findViewById(R.id.startButton)
 
+        // Configurar um listener de clique no botão.
+        // Quando o botão é pressionado, a aplicação navega para a EscolasActivity.
         startButton.setOnClickListener {
+            // Criar uma intenção para iniciar a atividade EscolasActivity.
             val intent = Intent(this, EscolasActivity::class.java)
-            startActivity(intent) // Inicia a segunda atividade
+            startActivity(intent) // Iniciar a nova atividade.
         }
     }
 }

@@ -1,110 +1,68 @@
 package com.example.trabalhopratico
 
-import android.Manifest
-import android.content.pm.PackageManager
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.app.ActivityCompat
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
-import api.EndPoints
-import api.Estagio
-import api.ServiceBuilder
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
-    private lateinit var mMap: GoogleMap
-    private lateinit var distrito: String // Distrito recebido via Intent
+    private lateinit var mMap: GoogleMap // Referência para o mapa do Google
+    private lateinit var cidade: String // Nome da cidade recebida por Intent
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_mapa)
 
-        // Receber o distrito passado da EstagiosActivity
-        distrito = intent.getStringExtra("DISTRITO") ?: ""
+        // Receber a cidade passada pela Intent da atividade anterior
+        cidade = intent.getStringExtra("CIDADE") ?: ""
 
-        // Carregar o mapa
+        // Inicializar o fragmento de mapa e configurar o callback
         val mapFragment = supportFragmentManager
             .findFragmentById(R.id.mapFragment) as SupportMapFragment
-        mapFragment.getMapAsync(this)
+        mapFragment.getMapAsync(this) // Definir a atividade como callback quando o mapa estiver pronto
     }
 
+    // Metodo chamado quando o mapa está pronto para ser utilizado
     override fun onMapReady(googleMap: GoogleMap) {
-        mMap = googleMap
+        mMap = googleMap // Inicializa o mapa
 
-        if (distrito.isNotEmpty()) {
-            // Carregar os estágios filtrados pelo distrito
-            fetchEstagiosByDistrito(distrito)
+        if (cidade.isNotEmpty()) {
+            // Obter as coordenadas da cidade
+            val position = getCoordinatesFromCity(cidade)
+
+            // Adicionar um marcador na posição da cidade
+            mMap.addMarker(
+                MarkerOptions()
+                    .position(position) // Coordenadas da cidade
+                    .title("Local: $cidade") // Texto exibido ao clicar no marcador
+            )
+
+            // Mover a câmara para a cidade com um zoom de 12
+            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(position, 12f))
         } else {
-            Toast.makeText(this, "Erro: Distrito não recebido!", Toast.LENGTH_SHORT).show()
+            // Mostrar uma mensagem de erro se a cidade não foi passada
+            Toast.makeText(this, "Erro: Cidade não recebida", Toast.LENGTH_SHORT).show()
         }
     }
 
-    private fun fetchEstagiosByDistrito(distrito: String) {
-        val request = ServiceBuilder.buildService(EndPoints::class.java)
-        val call = request.getEstagios()
-
-        call.enqueue(object : Callback<List<Estagio>> {
-            override fun onResponse(call: Call<List<Estagio>>, response: Response<List<Estagio>>) {
-                if (response.isSuccessful) {
-                    val estagios = response.body() ?: emptyList()
-
-                    // Filtrar estágios pelo distrito
-                    val estagiosFiltrados = estagios.filter { it.distrito == distrito }
-
-                    if (estagiosFiltrados.isNotEmpty()) {
-                        for (estagio in estagiosFiltrados) {
-                            // Simulando coordenadas baseado na cidade (substituir por dados reais)
-                            val position = getCoordinatesFromCity(estagio.distrito)
-                            mMap.addMarker(
-                                MarkerOptions()
-                                    .position(position)
-                                    .title("${estagio.empresa}: ${estagio.descricao}")
-                            )
-                        }
-
-                        // Centralizar o mapa no primeiro estágio
-                        val firstPosition = getCoordinatesFromCity(estagiosFiltrados[0].distrito)
-                        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(firstPosition, 10f))
-                    } else {
-                        Toast.makeText(
-                            this@MapsActivity,
-                            "Nenhum estágio encontrado para o distrito: $distrito",
-                            Toast.LENGTH_SHORT
-                        ).show()
-                    }
-                }
-            }
-
-            override fun onFailure(call: Call<List<Estagio>>, t: Throwable) {
-                Log.e("MAPS_ERROR", t.message ?: "Erro desconhecido")
-                Toast.makeText(this@MapsActivity, "Erro ao carregar estágios", Toast.LENGTH_SHORT)
-                    .show()
-            }
-        })
-    }
-
-    // Metodo de exemplo para retornar coordenadas fictícias baseadas em cidades
+    // Metodo para obter as coordenadas fixas de uma cidade
     private fun getCoordinatesFromCity(city: String): LatLng {
         return when (city) {
-            "Porto" -> LatLng(41.1579, -8.6291)
-            "Braga" -> LatLng(41.5454, -8.4265)
-            "Guimarães" -> LatLng(41.4427, -8.2919)
-            "Viana do Castelo" -> LatLng(41.6932, -8.8329)
-            "Ponte de Lima" -> LatLng(41.7676, -8.5836)
-            "Maia" -> LatLng(41.2357, -8.6199)
-            "Vila Nova de Gaia" -> LatLng(41.1244, -8.6110)
-            "Barcelos" -> LatLng(41.5380, -8.6157)
-            else -> LatLng(41.1579, -8.6291) // Default: Porto
+            "Porto" -> LatLng(41.14961, -8.61099) // Coordenadas do Porto
+            "Lisboa" -> LatLng(38.71689, -9.13989) // Coordenadas de Lisboa
+            "Braga" -> LatLng(41.55032, -8.42005) // Coordenadas de Braga
+            "Guimarães" -> LatLng(41.44444, -8.29278) // Coordenadas de Guimarães
+            "Viana do Castelo" -> LatLng(41.6946, -8.8297) // Coordenadas de Viana do Castelo
+            "Aveiro" -> LatLng(40.64427, -8.64554) // Coordenadas de Aveiro
+            "Maia" -> LatLng(41.2357, -8.6199) // Coordenadas da Maia
+            "Vila Nova de Gaia" -> LatLng(41.1244, -8.6110) // Coordenadas de Vila Nova de Gaia
+            else -> LatLng(39.3999, -8.2245) // Coordenadas padrão para Portugal
         }
     }
 }

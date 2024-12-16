@@ -21,4 +21,19 @@
         android:layout_height="wrap_content"
         android:text="Cidade"
         android:textSize="14sp"/>
+
+    <TextView
+        android:id="@+id/textViewRua"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Rua"
+        android:textSize="14sp"/>
+
+    <TextView
+        android:id="@+id/textViewCodigoPostal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Código Postal"
+        android:textSize="14sp"/>
+
 </LinearLayout>
