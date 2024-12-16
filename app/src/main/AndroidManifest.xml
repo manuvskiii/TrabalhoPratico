@@ -43,6 +43,12 @@
         <!-- Fourth Activity -->
         <activity android:name=".EstagiosActivity" />
 
+        <!-- Fivth Activity -->
+        <activity android:name=".MapsActivity" />
+
+        <!-- Sixth Activity -->
+        <activity android:name=".LocaisActivity" />
+
     </application>
 
 </manifest>

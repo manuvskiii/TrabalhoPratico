@@ -26,6 +26,7 @@ data class Estagio(
     val empresa: String,
     val curso:String,
     val distrito: String,
+    val cidade: String,
     val descricao: String,
     val id_curso: Int,
     val id_local: Int
