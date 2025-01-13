@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".RoomTest">
+
+    <!-- Botão para salvar um comentário -->
+    <Button
+        android:id="@+id/SaveRoom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Salvar Comentário"
+        android:layout_margin="16dp" />
+
+    <!-- Botão de exemplo associado ao selectsize -->
+    <Button
+        android:id="@+id/buttonAdicionarNovoComentario"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Adicionar Novo Comentário"
+        android:layout_marginTop="16dp" />
+
+    <!-- RecyclerView para listar comentários -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/RoomView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="16dp"
+        android:scrollbars="vertical" />
+
+</LinearLayout>

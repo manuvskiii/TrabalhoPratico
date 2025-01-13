@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+<RatingBar
+    android:id="@+id/room_ratingBar"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    android:numStars="5"
+    android:stepSize="1"
+    android:rating="0"/>
+
+<EditText
+    android:id="@+id/AddComentario"
+    android:layout_below="@id/room_ratingBar"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="20dp"
+    android:fontFamily="sans-serif-light"
+    android:hint="Adicione um comentário"
+    android:inputType="textAutoComplete"
+    android:textSize="20sp"/>
+<Button
+    android:id="@+id/SaveComentario"
+    android:layout_below="@id/AddComentario"
+    android:layout_margin="20dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="Salvar Comentário"/>
+</RelativeLayout>

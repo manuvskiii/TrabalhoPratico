@@ -68,6 +68,8 @@ data class Estagio(
     val codigo_postal: String,
     val cidade: String,
     val descricao: String,
+    val latitude: Double, // Definido como Double para valores decimais
+    val longitude: Double, // Adicionado o campo longitude que está na tabela
     val id_curso: Int,
     val id_local: Int
 )

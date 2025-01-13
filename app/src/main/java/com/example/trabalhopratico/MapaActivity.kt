@@ -30,6 +30,15 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
     // Metodo chamado quando o mapa está pronto para ser utilizado
     override fun onMapReady(googleMap: GoogleMap) {
+
+        mMap.setOnMapLoadedCallback {
+            Toast.makeText(this, "Mapa carregado com sucesso!", Toast.LENGTH_SHORT).show()
+        }
+
+        mMap.setOnMapClickListener {
+            Toast.makeText(this, "Mapa clicado em: ${it.latitude}, ${it.longitude}", Toast.LENGTH_SHORT).show()
+        }
+
         mMap = googleMap // Inicializa o mapa
 
         if (cidade.isNotEmpty()) {
@@ -51,7 +60,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         }
     }
 
-    // Metodo para obter as coordenadas fixas de uma cidade
+    // Metodo para obter as coordenadas fixas de uma cidade Mudar
     private fun getCoordinatesFromCity(city: String): LatLng {
         return when (city) {
             "Porto" -> LatLng(41.14961, -8.61099) // Coordenadas do Porto
